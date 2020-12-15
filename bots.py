@@ -37,7 +37,7 @@ def password():
   print("http://t.me/kamakepar_man")
   me = str(input('Enter username: '))
   pw = r.get(domain+'/get_password.php?u='+me).text
-  print('Pas: '+pw)
+  #print('Pas: '+pw)
   if not os.path.exists(".password/pass.txt"):
       f = open(".password/pass.txt", "w+")
       f.write("wkwkwkwkw")
