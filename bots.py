@@ -6,6 +6,8 @@ from telethon.errors import SessionPasswordNeededError
 from telethon.errors import FloodWaitError
 from time import sleep
 import json,re,sys,os
+import requests as r
+
 try:
    import requests
    from bs4 import BeautifulSoup
@@ -34,7 +36,8 @@ def password():
 
   print("http://t.me/kamakepar_man")
   me = str(input('Enter username: '))
-  pw = r.get('/get_password.php?u='+me).text
+  pw = r.get(domain+'/get_password.php?u='+me).text
+  print('Pas: '+pw)
   if not os.path.exists(".password/pass.txt"):
       f = open(".password/pass.txt", "w+")
       f.write("wkwkwkwkw")
@@ -44,7 +47,7 @@ def password():
       if f.readlines()[0] == pw:
           sys.stdout.write("Using Exiting Password....!\n")
           break
-      pwin = input("Enter Password")
+      pwin = input("Enter Password: ")
       if pwin == pw:
           f = open(".password/pass.txt", "w+")
           f.write(pwin)
